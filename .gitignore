@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/osx,swift,xcode
 
+### Config ###
+config.swift
+
 ### OSX ###
 *.DS_Store
 .AppleDouble
