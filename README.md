@@ -14,7 +14,7 @@ Virtual Tourist Project for the Udacity iOS Nanodegree.
 ```swift
 extension Constants {
     
-    static let YahooAPIKey = "YOUR_API_KEY_HERE"
+    static let FlickrAPIKey : String = "YOUR_API_KEY_HERE"
     
 }
 ```
