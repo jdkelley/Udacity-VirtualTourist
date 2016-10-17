@@ -13,6 +13,8 @@
 		9661558D1DB51BBD00BF0F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9661558C1DB51BBD00BF0F98 /* Assets.xcassets */; };
 		966155901DB51BBD00BF0F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9661558E1DB51BBD00BF0F98 /* LaunchScreen.storyboard */; };
 		9661559B1DB51BBD00BF0F98 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9661559A1DB51BBD00BF0F98 /* VirtualTouristTests.swift */; };
+		966155AA1DB5282800BF0F98 /* AppContstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155A91DB5282800BF0F98 /* AppContstants.swift */; };
+		966155AC1DB5286F00BF0F98 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155AB1DB5286F00BF0F98 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		966155961DB51BBD00BF0F98 /* VirtualTouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualTouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9661559A1DB51BBD00BF0F98 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
 		9661559C1DB51BBD00BF0F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966155A91DB5282800BF0F98 /* AppContstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContstants.swift; sourceTree = "<group>"; };
+		966155AB1DB5286F00BF0F98 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,9 @@
 		966155841DB51BBD00BF0F98 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
-				966155851DB51BBD00BF0F98 /* AppDelegate.swift */,
-				966155871DB51BBD00BF0F98 /* ViewController.swift */,
-				966155891DB51BBD00BF0F98 /* Main.storyboard */,
-				9661558C1DB51BBD00BF0F98 /* Assets.xcassets */,
-				9661558E1DB51BBD00BF0F98 /* LaunchScreen.storyboard */,
-				966155911DB51BBD00BF0F98 /* Info.plist */,
+				966155A71DB527D400BF0F98 /* Controller */,
+				966155A61DB527CF00BF0F98 /* View */,
+				966155A51DB527C900BF0F98 /* Model */,
 			);
 			path = VirtualTourist;
 			sourceTree = "<group>";
@@ -94,6 +95,43 @@
 				9661559C1DB51BBD00BF0F98 /* Info.plist */,
 			);
 			path = VirtualTouristTests;
+			sourceTree = "<group>";
+		};
+		966155A51DB527C900BF0F98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				966155AB1DB5286F00BF0F98 /* Config.swift */,
+				966155A81DB527DA00BF0F98 /* Assets */,
+				966155851DB51BBD00BF0F98 /* AppDelegate.swift */,
+				966155A91DB5282800BF0F98 /* AppContstants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		966155A61DB527CF00BF0F98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				966155891DB51BBD00BF0F98 /* Main.storyboard */,
+				9661558E1DB51BBD00BF0F98 /* LaunchScreen.storyboard */,
+				9661558C1DB51BBD00BF0F98 /* Assets.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		966155A71DB527D400BF0F98 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				966155871DB51BBD00BF0F98 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		966155A81DB527DA00BF0F98 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				966155911DB51BBD00BF0F98 /* Info.plist */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +240,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				966155881DB51BBD00BF0F98 /* ViewController.swift in Sources */,
+				966155AC1DB5286F00BF0F98 /* Config.swift in Sources */,
 				966155861DB51BBD00BF0F98 /* AppDelegate.swift in Sources */,
+				966155AA1DB5282800BF0F98 /* AppContstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
