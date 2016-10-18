@@ -13,8 +13,10 @@
 		9661558D1DB51BBD00BF0F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9661558C1DB51BBD00BF0F98 /* Assets.xcassets */; };
 		966155901DB51BBD00BF0F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9661558E1DB51BBD00BF0F98 /* LaunchScreen.storyboard */; };
 		9661559B1DB51BBD00BF0F98 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9661559A1DB51BBD00BF0F98 /* VirtualTouristTests.swift */; };
-		966155AA1DB5282800BF0F98 /* AppContstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155A91DB5282800BF0F98 /* AppContstants.swift */; };
+		966155AA1DB5282800BF0F98 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155A91DB5282800BF0F98 /* AppConstants.swift */; };
 		966155AC1DB5286F00BF0F98 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155AB1DB5286F00BF0F98 /* Config.swift */; };
+		966155AE1DB5522B00BF0F98 /* TravelLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155AD1DB5522B00BF0F98 /* TravelLocationsViewController.swift */; };
+		966155B01DB5524600BF0F98 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966155AF1DB5524600BF0F98 /* PhotoAlbumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,10 @@
 		966155961DB51BBD00BF0F98 /* VirtualTouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualTouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9661559A1DB51BBD00BF0F98 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
 		9661559C1DB51BBD00BF0F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		966155A91DB5282800BF0F98 /* AppContstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContstants.swift; sourceTree = "<group>"; };
+		966155A91DB5282800BF0F98 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		966155AB1DB5286F00BF0F98 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		966155AD1DB5522B00BF0F98 /* TravelLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelLocationsViewController.swift; sourceTree = "<group>"; };
+		966155AF1DB5524600BF0F98 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,7 @@
 				966155AB1DB5286F00BF0F98 /* Config.swift */,
 				966155A81DB527DA00BF0F98 /* Assets */,
 				966155851DB51BBD00BF0F98 /* AppDelegate.swift */,
-				966155A91DB5282800BF0F98 /* AppContstants.swift */,
+				966155A91DB5282800BF0F98 /* AppConstants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -122,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				966155871DB51BBD00BF0F98 /* ViewController.swift */,
+				966155AD1DB5522B00BF0F98 /* TravelLocationsViewController.swift */,
+				966155AF1DB5524600BF0F98 /* PhotoAlbumViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -242,7 +248,9 @@
 				966155881DB51BBD00BF0F98 /* ViewController.swift in Sources */,
 				966155AC1DB5286F00BF0F98 /* Config.swift in Sources */,
 				966155861DB51BBD00BF0F98 /* AppDelegate.swift in Sources */,
-				966155AA1DB5282800BF0F98 /* AppContstants.swift in Sources */,
+				966155AE1DB5522B00BF0F98 /* TravelLocationsViewController.swift in Sources */,
+				966155AA1DB5282800BF0F98 /* AppConstants.swift in Sources */,
+				966155B01DB5524600BF0F98 /* PhotoAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
