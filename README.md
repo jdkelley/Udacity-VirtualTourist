@@ -25,4 +25,4 @@ extension Constants {
 
 ## License ##
 
-This project is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+All content is licensed under the terms of the [MIT open source license](http://www.opensource.org/licenses/MIT).
