@@ -7,13 +7,38 @@
 //
 
 import UIKit
+import MapKit
 
 class PhotoAlbumViewController: UIViewController {
-
+    
+    // MARK: Properties
+    
+    var location: CLLocation?
+    var annotation: MKAnnotation?
+    
+    // MARK: Outlets
+    
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: Actions
+    
+    
+    /// New Collection Action.
+    /// 
+    /// This method goes out and get a new collection of Flickr images for this coordinate set. 
+    /// This is only possible (the button is only enabled) once the last download has finished.
+    ///
+    /// - parameter sender: The `UIButton` sending the action.
+    @IBAction func newCollectionTapped(_ sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.isNavigationBarHidden = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(leavePage))
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +47,15 @@ class PhotoAlbumViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func leavePage() {
+        print("OK Tapped")
     }
-    */
+    
+    
+}
 
+extension PhotoAlbumViewController : UICollectionViewDelegate {
+    
 }

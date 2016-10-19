@@ -18,18 +18,18 @@ class TravelLocationsViewController: UIViewController {
 
     @IBOutlet weak var mapTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var editModeView: UIView!
-    @IBOutlet weak var mapView: MKMapView!
-    
-//    func editTapped(_ sender: AnyObject) {
-//        isInEditMode = !isInEditMode
-//    }
-    
-
+    @IBOutlet weak var mapView: MKMapView! { didSet { mapView.delegate = self } }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
+        // Mapview
+        
+        let gr = UILongPressGestureRecognizer(target: self, action: #selector(addPinForPress(_:)))
+        gr.minimumPressDuration = 0.3
+        mapView.addGestureRecognizer(gr)
+        
+        // Navigation
         navigationController?.isNavigationBarHidden = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toggleEdit))
 
@@ -68,6 +68,47 @@ extension TravelLocationsViewController {
     //
     
 }
+
+extension TravelLocationsViewController {
+    
+    func addPinForPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        print("Add Pin For Press")
+        
+        if gestureRecognizer.state == .began {
+            let point = gestureRecognizer.location(in: mapView)
+            let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            
+        }
+    }
+    
+}
+
+//class Pin {
+//    
+//}
+//
+//extension Pin {
+//    convenience init(location: CLLocationCoordinate2D) {
+//        
+//    }
+//}
+//
+//extension MKPointAnnotation {
+//    convenience init(pin: Pin) {
+//        self.init()
+//        self.coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
+//    }
+//    
+//    static func from(pins: [Pin]) -> [MKPointAnnotation] {
+//        var annotations: [MKPointAnnotation] = []
+//        for pin in pins {
+//            annotations.append(MKPointAnnotation(pin: pin))
+//        }
+//        return
+//    }
+//}
 
 // MARK: MKMapDelegate
 

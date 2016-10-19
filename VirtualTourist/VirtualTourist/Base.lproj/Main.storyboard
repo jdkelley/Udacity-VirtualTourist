@@ -19,10 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-yS-O6j"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-yS-O6j">
+                                <frame key="frameInset" width="1000" height="1000"/>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdY-ul-gAm" userLabel="EditMode">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Pins to Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11k-aw-udL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap Pins to Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11k-aw-udL">
+                                        <frame key="frameInset" width="1000" height="1000"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -50,7 +53,7 @@
                     <connections>
                         <outlet property="editModeView" destination="LdY-ul-gAm" id="g1m-oT-MLj"/>
                         <outlet property="mapTopConstraint" destination="rkM-hW-ond" id="hZa-j8-xrJ"/>
-                        <outlet property="mapView" destination="BK3-yS-O6j" id="SEZ-ls-dQ3"/>
+                        <outlet property="mapView" destination="BK3-yS-O6j" id="oft-0c-S2Q"/>
                         <segue destination="aMC-c0-YEL" kind="show" identifier="ShowAlbumForPin" id="kgs-eF-Upa"/>
                     </connections>
                 </viewController>
@@ -69,8 +72,55 @@
                     <view key="view" contentMode="scaleToFill" id="Tx4-Uo-svs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OOn-le-wEY">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oZ8-0g-h4k">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Q1-h3-XEZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NSN-Mu-cqL"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUW-mR-Egl">
+                                <state key="normal" title="New Collection"/>
+                                <connections>
+                                    <action selector="newCollectionTapped:" destination="aMC-c0-YEL" eventType="touchUpInside" id="PyU-rT-WIp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.9763680100440979" green="0.97653132677078247" blue="0.9763450026512146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OOn-le-wEY" firstAttribute="top" secondItem="NSN-Mu-cqL" secondAttribute="bottom" id="7RV-Xr-aNS"/>
+                            <constraint firstItem="NSN-Mu-cqL" firstAttribute="height" secondItem="Tx4-Uo-svs" secondAttribute="height" multiplier="0.25" id="FJV-Mb-8Md"/>
+                            <constraint firstAttribute="trailing" secondItem="wUW-mR-Egl" secondAttribute="trailing" id="G8V-gR-jCl"/>
+                            <constraint firstItem="QrS-5E-iIl" firstAttribute="top" secondItem="wUW-mR-Egl" secondAttribute="bottom" id="JWb-dz-1mz"/>
+                            <constraint firstAttribute="trailing" secondItem="NSN-Mu-cqL" secondAttribute="trailing" id="NZ3-Nf-Wc8"/>
+                            <constraint firstItem="wUW-mR-Egl" firstAttribute="top" secondItem="OOn-le-wEY" secondAttribute="bottom" id="ZJK-zc-bS4"/>
+                            <constraint firstItem="OOn-le-wEY" firstAttribute="leading" secondItem="Tx4-Uo-svs" secondAttribute="leading" id="ZVI-9l-Oqv"/>
+                            <constraint firstItem="NSN-Mu-cqL" firstAttribute="leading" secondItem="Tx4-Uo-svs" secondAttribute="leading" id="d7k-Fb-1KI"/>
+                            <constraint firstAttribute="trailing" secondItem="OOn-le-wEY" secondAttribute="trailing" id="edl-1g-FLe"/>
+                            <constraint firstItem="wUW-mR-Egl" firstAttribute="height" secondItem="Tx4-Uo-svs" secondAttribute="height" multiplier="0.1" id="o1T-7c-vcQ"/>
+                            <constraint firstItem="wUW-mR-Egl" firstAttribute="leading" secondItem="Tx4-Uo-svs" secondAttribute="leading" id="uz3-9F-eLE"/>
+                            <constraint firstItem="NSN-Mu-cqL" firstAttribute="top" secondItem="hgd-cF-WmI" secondAttribute="bottom" id="vhr-Ls-bXl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="OOn-le-wEY" id="kIi-RB-PIj"/>
+                        <outlet property="mapView" destination="NSN-Mu-cqL" id="rPM-ku-aii"/>
+                        <outlet property="newButton" destination="wUW-mR-Egl" id="Yh8-yh-xbg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRO-Hf-ybG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,7 +131,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qzX-FS-cUi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" backIndicatorImage="back" id="MXc-qw-QoY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="back" id="MXc-qw-QoY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
