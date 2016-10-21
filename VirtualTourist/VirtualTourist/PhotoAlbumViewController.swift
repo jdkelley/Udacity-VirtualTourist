@@ -13,7 +13,6 @@ class PhotoAlbumViewController: UIViewController {
     
     // MARK: Properties
     
-    var location: CLLocation?
     var annotation: MKAnnotation?
     
     // MARK: Outlets
@@ -32,13 +31,20 @@ class PhotoAlbumViewController: UIViewController {
     ///
     /// - parameter sender: The `UIButton` sending the action.
     @IBAction func newCollectionTapped(_ sender: AnyObject) {
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Navigation
         navigationController?.isNavigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(leavePage))
+        
+        // MapView
+        mapView.addAnnotation(annotation!)
+        
     }
 
     override func didReceiveMemoryWarning() {
