@@ -12,10 +12,27 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // MARK: Persistence
+    
+    func checkForFirstLaunch() {
+        if UserDefaults.standard.bool(forKey: AppConstants.Persist.HasLaunchedBefore) {
+            print("Has Launched Before")
+        } else {
+            print("First Launch")
+            UserDefaults.standard.set(true, forKey: AppConstants.Persist.HasLaunchedBefore)
+            UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.mapLatitude)
+            UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.mapLongitude)
+            UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.mapZoomLevel)
+            UserDefaults.standard.synchronize()
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        checkForFirstLaunch()
+        
         return true
     }
 
