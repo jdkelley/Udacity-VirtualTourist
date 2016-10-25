@@ -130,11 +130,11 @@
 		966155A51DB527C900BF0F98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				966155911DB51BBD00BF0F98 /* Info.plist */,
+				966155AB1DB5286F00BF0F98 /* Config.swift */,
 				962B51D71DB80D2C00A5E341 /* Networking */,
 				962B51D61DB80D2500A5E341 /* CoreData */,
-				966155AB1DB5286F00BF0F98 /* Config.swift */,
 				966155851DB51BBD00BF0F98 /* AppDelegate.swift */,
-				966155911DB51BBD00BF0F98 /* Info.plist */,
 				966155A91DB5282800BF0F98 /* AppConstants.swift */,
 				962B51E91DBE529700A5E341 /* Types.swift */,
 				962B51EB1DBE55B500A5E341 /* Errors.swift */,

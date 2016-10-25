@@ -15,7 +15,9 @@ Virtual Tourist Project for the Udacity iOS Nanodegree.
 * Inside the Config.swift file, add the following code:
 
 ```swift
-extension Constants {
+import Foundation
+
+extension AppConstants {
     
     static let FlickrAPIKey : String = "YOUR_API_KEY_HERE"
     
