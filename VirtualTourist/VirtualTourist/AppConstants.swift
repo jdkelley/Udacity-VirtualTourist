@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Constants {
+class AppConstants {
     
     /// Pin Reuse Identifier
     static let Pin : String = "Pin"
@@ -22,4 +22,19 @@ class Constants {
     /// Magic string identifier for `TravelLocationsViewController.`
     static let PhotoAlbumViewController : String = "PhotoAlbumViewController"
     
+    struct ErrorMessages {
+        static let UnableToFindEntityName = "Unable To Find Entity Name!"
+    }
+    
+    struct Persist {
+        
+        static let HasLaunchedBefore = "hasLaunchedBefore"
+        
+        static let mapLatitude = "mapLatitude"
+        
+        static let mapLongitude = "mapLongitude"
+        
+        static let mapZoomLevel = "mapZoomLevel"
+        
+    }
 }
