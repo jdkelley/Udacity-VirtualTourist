@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import MapKit
 
 class MapPersist {
     
@@ -20,21 +20,29 @@ class MapPersist {
    
     // MARK: - Methods
     
-    func saveMapParameters(latitude: Double, longitude: Double, zoom: Double) {
+    func shouldUseDefaults(zWidth: Double, zHeight: Double) -> Bool {
+        return zHeight == 0.0 || zWidth == 0.0
+    }
+    
+    func saveMapParameters(latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoomWidth: CLLocationDistance, zoomHeight: CLLocationDistance) {
         UserDefaults.standard.set(latitude, forKey: AppConstants.Persist.mapLatitude)
         UserDefaults.standard.set(longitude, forKey: AppConstants.Persist.mapLongitude)
-        UserDefaults.standard.set(zoom, forKey: AppConstants.Persist.mapZoomLevel)
+        UserDefaults.standard.set(zoomWidth, forKey: AppConstants.Persist.zoomWidth)
+        UserDefaults.standard.set(zoomHeight, forKey: AppConstants.Persist.zoomHeight)
+        
     }
     
-    func getMapZoom() -> Double {
-        return UserDefaults.standard.double(forKey: AppConstants.Persist.mapZoomLevel)
+    func getMapRegionInfo() -> (width: CLLocationDistance, height: CLLocationDistance) {
+        let width = UserDefaults.standard.double(forKey: AppConstants.Persist.zoomWidth)
+        let height = UserDefaults.standard.double(forKey: AppConstants.Persist.zoomHeight)
+        return (width, height)
     }
     
-    func getMapLatitude() -> Double {
+    func getMapLatitude() -> CLLocationDegrees {
         return UserDefaults.standard.double(forKey: AppConstants.Persist.mapLatitude)
     }
     
-    func getMapLongitude() -> Double {
+    func getMapLongitude() -> CLLocationDegrees {
         return UserDefaults.standard.double(forKey: AppConstants.Persist.mapLongitude)
     }
 }

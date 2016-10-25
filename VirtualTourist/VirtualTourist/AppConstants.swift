@@ -34,7 +34,9 @@ class AppConstants {
         
         static let mapLongitude = "mapLongitude"
         
-        static let mapZoomLevel = "mapZoomLevel"
+        static let zoomWidth = "zoomWidth"
+        
+        static let zoomHeight = "zoomHeight"
         
     }
 }

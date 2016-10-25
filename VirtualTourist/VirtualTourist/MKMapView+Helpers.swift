@@ -18,6 +18,14 @@ extension MKMapView {
         self.setRegion(adjustedRegion, animated: true)
     }
     
+    func setSavedZoomFor(latitude: CLLocationDegrees, longitude: CLLocationDegrees, widthInMeters: CLLocationDistance, heightInMeters: CLLocationDistance) {
+        
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, heightInMeters, widthInMeters)
+        let adjustedRegion = self.regionThatFits(viewRegion)
+        self.setRegion(adjustedRegion, animated: true)
+    }
+    
     func getZoomLevel() -> (lonWidth: CLLocationDistance, latHeight: CLLocationDistance) {
         let heightInMeters = self.region.span.latitudeDelta
         let widthInMeters = self.region.span.longitudeDelta

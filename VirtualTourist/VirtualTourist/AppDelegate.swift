@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: AppConstants.Persist.HasLaunchedBefore)
             UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.mapLatitude)
             UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.mapLongitude)
-            UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.mapZoomLevel)
+            UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.zoomHeight)
+            UserDefaults.standard.set(0.0, forKey: AppConstants.Persist.zoomWidth)
             UserDefaults.standard.synchronize()
         }
     }
