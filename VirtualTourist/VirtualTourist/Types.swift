@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
+typealias DownloadedImageHandler = (UIImage?, Error?) -> Void
+
+extension FlickrClient {
+    typealias CompletionHandlerForGet = (Any?, Error?) -> Void
+    typealias DataLayerUIAlert = (Bool, String) -> Void
+}
+
