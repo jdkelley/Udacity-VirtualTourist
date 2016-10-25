@@ -13,7 +13,7 @@ class PhotoAlbumViewController: UIViewController {
     
     // MARK: Properties
     
-    var annotation: MKAnnotation?
+    var annotation: MKPointAnnotation?
     
     // MARK: Outlets
     
@@ -41,10 +41,13 @@ class PhotoAlbumViewController: UIViewController {
         // Navigation
         navigationController?.isNavigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(leavePage))
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // MapView
         mapView.addAnnotation(annotation!)
-        
+        mapView.setZoomFor(annotation: annotation!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,8 +60,11 @@ class PhotoAlbumViewController: UIViewController {
 
     func leavePage() {
         print("OK Tapped")
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - Map
     
 }
 

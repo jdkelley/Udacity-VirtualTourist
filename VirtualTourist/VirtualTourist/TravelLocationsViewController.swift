@@ -15,6 +15,7 @@ class TravelLocationsViewController: UIViewController {
     // MARK: - Properties
     
     var isInEditMode: Bool = false
+    var annotation: MKPointAnnotation?
 
     @IBOutlet weak var mapTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var editModeView: UIView!
@@ -50,7 +51,10 @@ class TravelLocationsViewController: UIViewController {
          // Pass the selected object to the new view controller.
         
         if let vc = segue.destination as? PhotoAlbumViewController {
-            // setup
+            guard let annotation = self.annotation else {
+                return
+            }
+            vc.annotation = annotation
         }
     }
 }
@@ -69,6 +73,8 @@ extension TravelLocationsViewController {
     
 }
 
+// MARK: - Add Pin For Long Press
+
 extension TravelLocationsViewController {
     
     func addPinForPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
@@ -79,21 +85,14 @@ extension TravelLocationsViewController {
             let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
-            
+            mapView.addAnnotation(annotation)
+            // TODO: - Persist and start download
         }
     }
     
 }
 
-//class Pin {
-//    
-//}
-//
-//extension Pin {
-//    convenience init(location: CLLocationCoordinate2D) {
-//        
-//    }
-//}
+
 //
 //extension MKPointAnnotation {
 //    convenience init(pin: Pin) {
@@ -116,15 +115,30 @@ extension TravelLocationsViewController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.Pin) as? MKPinAnnotationView
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: AppConstants.Pin) as? MKPinAnnotationView
         
         if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: Constants.Pin)
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: AppConstants.Pin)
             pinView!.pinTintColor = .red
+            pinView!.sizeThatFits(CGSize(width: 30, height: 100))
+            pinView!.animatesDrop = true
         } else {
             pinView!.annotation = annotation
         }
         return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation as? MKPointAnnotation else {
+            return
+        }
+        
+        if isInEditMode {
+            mapView.removeAnnotation(annotation)
+        } else {
+            self.annotation = annotation
+            self.performSegue(withIdentifier: AppConstants.Segue, sender: annotation)
+        }
     }
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
