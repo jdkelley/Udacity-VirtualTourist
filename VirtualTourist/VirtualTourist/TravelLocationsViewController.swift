@@ -36,6 +36,20 @@ class TravelLocationsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let regionInfo = MapPersist.shared.getMapRegionInfo()
+        let width = regionInfo.width
+        let height = regionInfo.height
+        if MapPersist.shared.shouldUseDefaults(zWidth: width, zHeight: height) {
+            let latitude = MapPersist.shared.getMapLatitude()
+            let longitude = MapPersist.shared.getMapLongitude()
+            
+            mapView.setSavedZoomFor(latitude: latitude, longitude: longitude, widthInMeters: width, heightInMeters: height)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -139,6 +153,12 @@ extension TravelLocationsViewController : MKMapViewDelegate {
             self.annotation = annotation
             self.performSegue(withIdentifier: AppConstants.Segue, sender: annotation)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = mapView.region.center
+        let span = mapView.region.span
+        MapPersist.shared.saveMapParameters(latitude: center.latitude, longitude: center.longitude, zoomWidth: span.longitudeDelta, zoomHeight: span.latitudeDelta)
     }
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
